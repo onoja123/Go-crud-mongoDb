@@ -20,7 +20,13 @@ func NewUserController(sin *mgo.Session) *UserController {
 	return &UserController{sin}
 }
 
-// Get user controller
+/**
+* @author Okpe Onoja <okpeonoja18@gmail.com>
+* @description Get a user by id
+* @route `@any`
+* @access Public
+* @type GET, POST, PUT
+ */
 func (userController UserController) GetUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	//User id
 	id := p.ByName("id")
@@ -52,7 +58,13 @@ func (userController UserController) GetUser(w http.ResponseWriter, r *http.Requ
 	fmt.Fprintf(w, "%s\n", uj)
 }
 
-// Create a new new user
+/**
+* @author Okpe Onoja <okpeonoja18@gmail.com>
+* @description Create a new user and save it to the database
+* @route `@any`
+* @access Public
+* @type GET, POST, PUT
+ */
 func (userController UserController) CreateUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	u := models.User{}
 
@@ -74,7 +86,13 @@ func (userController UserController) CreateUser(w http.ResponseWriter, r *http.R
 	fmt.Fprintf(w, "%s\n", uj)
 }
 
-// Delete a user by id
+/**
+* @author Okpe Onoja <okpeonoja18@gmail.com>
+* @description Delete a user by id
+* @route `@any`
+* @access Public
+* @type GET, POST, PUT
+ */
 func (userController UserController) DeleteUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	//User id
 	id := p.ByName("id")
